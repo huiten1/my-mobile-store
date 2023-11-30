@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("UI")]
+    public Canvas mainCanvas;
     public static GameManager Instance;
 
     public enum GameState

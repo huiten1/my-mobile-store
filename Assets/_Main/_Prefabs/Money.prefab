@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebb6c4dec944fb4b96476cf55540c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyAmount: 1
+  moneySprite: {fileID: 0}
+  minDuration: 0.7
+  maxDuration: 1.5
+  easeType: 19
 --- !u!65 &7834593601769522582
 BoxCollider:
   m_ObjectHideFlags: 0
