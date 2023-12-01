@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
 
             Vector3 direction = new Vector3(xInput, 0, yInput);
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            transform.DORotate(new Vector3(0, angle, 0), 0.5f);
+            transform.DORotate(new Vector3(0, angle + 45f, 0), 0.5f);
             if (xInput > 0.5f || xInput < -0.5f || yInput > 0.5f || yInput < -0.5f)
             {
                 transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward);
