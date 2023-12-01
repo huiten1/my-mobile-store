@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,18 +37,23 @@ public class UnlockArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!isUnlocked) Unlock();
+            if (!isUnlocked) StartCoroutine(Unlock());
         }
     }
 
-    void Unlock()
+    IEnumerator Unlock()
     {
+        yield return null;
         int dropAmount = 1;
         MoneySystem.Instance.SpendMoney(dropAmount);
         currentGivenMoney += dropAmount;
         float remappedValue = Remap(currentGivenMoney, 1, 10, 0, 1);
         fillImg.fillAmount = remappedValue;
 
+        yield return null;
+        Animate();
+
+        yield return null;
         if (currentGivenMoney >= unlockCost)
         {
             isUnlocked = true;
@@ -59,11 +65,22 @@ public class UnlockArea : MonoBehaviour
         {
             isUnlocked = false;
         }
+        yield return null;
     }
 
     float Remap(float value, float low1, float high1, float low2, float high2)
     {
         return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
+    }
+
+    void Animate()
+    {
+        GameObject moneyTmp = Instantiate(MoneySystem.Instance.moneyPf);
+        moneyTmp.transform.DOMove(transform.position + new Vector3(Random.Range(0.5f, 0.75f), 1.5f, Random.Range(0.5f, 1.5f)), Random.Range(0.5f, 1f))
+                            .From(transform.position).SetEase(Ease.OutBounce).OnComplete(() =>
+        {
+            Destroy(moneyTmp);
+        });
     }
 
 }

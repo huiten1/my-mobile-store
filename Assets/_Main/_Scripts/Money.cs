@@ -14,6 +14,7 @@ public class Money : MonoBehaviour
     [SerializeField][Range(0.5f, 0.9f)] float minDuration;
     [SerializeField][Range(0.9f, 2f)] float maxDuration;
     [SerializeField] Ease easeType;
+    private Vector2 canvasPosition;
 
 
     private void OnTriggerEnter(Collider other)
@@ -23,24 +24,21 @@ public class Money : MonoBehaviour
             MoneySystem.Instance.AddMoney(moneyAmount);
 
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-            Vector2 canvasPosition;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(GameManager.Instance.mainCanvas.transform as RectTransform, screenPosition, GameManager.Instance.mainCanvas.worldCamera, out canvasPosition);
-            Debug.Log("Canvas Position: " + canvasPosition);
-            GameObject moneySpriteTmp = Instantiate(moneySprite, GameManager.Instance.mainCanvas.transform);
-            moneySpriteTmp.transform.position = canvasPosition;
+            GameObject moneySpriteTmp = Instantiate(moneySprite, MoneySystem.Instance.parentTf);
+            moneySpriteTmp.transform.position = screenPosition;
+            Destroy(gameObject);
 
             float duration = Random.Range(minDuration, maxDuration);
-            transform.DOMove(MoneySystem.Instance.moneyText.transform.position, duration).SetEase(easeType).OnComplete(() =>
+            moneySpriteTmp.transform.DOMove(MoneySystem.Instance.targetTf.position, duration).SetEase(easeType).OnComplete(() =>
             {
-                Destroy(gameObject, 0.1f);
+                Destroy(moneySpriteTmp);
+                MoneySystem.Instance.targetTf.DOScale(Vector3.one * 0.8f, 0.5f).From(Vector3.one * 1.2f).SetEase(Ease.InOutBounce).OnComplete(() =>
+                {
+                    MoneySystem.Instance.targetTf.localScale = Vector3.one;
+                });
             });
 
         }
-    }
-
-    void Animate()
-    {
-
     }
 
 

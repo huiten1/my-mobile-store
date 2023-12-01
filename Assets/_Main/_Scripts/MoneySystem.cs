@@ -8,7 +8,14 @@ public class MoneySystem : MonoBehaviour
 {
     public static MoneySystem Instance;
 
+    [Header("UI")]
     public TMP_Text moneyText;
+
+    [Header("Animation")]
+    public Transform parentTf;
+    public Transform targetTf;
+    public GameObject moneyPf;
+
     public static int playerMoney;
 
 
