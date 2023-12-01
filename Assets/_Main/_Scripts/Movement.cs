@@ -30,9 +30,9 @@ public class Movement : MonoBehaviour
             xInput = floatingJoystick.Horizontal;
             yInput = floatingJoystick.Vertical;
 
-            Vector3 direction = new Vector3(xInput, 0, yInput) - Vector3.zero;
+            Vector3 direction = new Vector3(xInput, 0, yInput);
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            transform.DORotate(new Vector3(0, angle, 0), 1f);
+            transform.DORotate(new Vector3(0, angle, 0), 0.5f);
             if (xInput > 0.5f || xInput < -0.5f || yInput > 0.5f || yInput < -0.5f)
             {
                 transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward);

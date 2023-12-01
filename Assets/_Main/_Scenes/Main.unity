@@ -1264,7 +1264,7 @@ MonoBehaviour:
   moneyText: {fileID: 1529455498}
   parentTf: {fileID: 795307486}
   targetTf: {fileID: 1619913549}
-  moneyPf: {fileID: 7834593601769522576, guid: 9c5fce59000a5084f8b8b8f8c8bc52f6, type: 3}
+  moneyPf: {fileID: 7834593601769522576, guid: 86f0b1ca813b4d4488c4c4229ddae421, type: 3}
 --- !u!1001 &402967111
 PrefabInstance:
   m_ObjectHideFlags: 0

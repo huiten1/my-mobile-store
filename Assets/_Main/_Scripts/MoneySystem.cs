@@ -16,7 +16,7 @@ public class MoneySystem : MonoBehaviour
     public Transform targetTf;
     public GameObject moneyPf;
 
-    public static int playerMoney;
+    public int playerMoney;
 
 
 

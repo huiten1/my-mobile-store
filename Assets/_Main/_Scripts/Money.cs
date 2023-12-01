@@ -15,7 +15,14 @@ public class Money : MonoBehaviour
     [SerializeField][Range(0.9f, 2f)] float maxDuration;
     [SerializeField] Ease easeType;
     private Vector2 canvasPosition;
+    private Vector3 originalScale;
 
+
+
+    private void Start()
+    {
+        SpawnAnimate();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,6 +46,15 @@ public class Money : MonoBehaviour
             });
 
         }
+    }
+
+    void SpawnAnimate()
+    {
+        originalScale = transform.localScale;
+        transform.DOScale(originalScale, 0.75f).From(originalScale * 0.5f).SetEase(Ease.InElastic).OnComplete(() =>
+        {
+
+        });
     }
 
 

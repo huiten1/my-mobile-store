@@ -37,23 +37,24 @@ public class UnlockArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!isUnlocked) StartCoroutine(Unlock());
+            if (!isUnlocked) Unlock();
         }
     }
 
-    IEnumerator Unlock()
+    void Unlock()
     {
-        yield return null;
+        if (MoneySystem.Instance.playerMoney <= 0) return;
         int dropAmount = 1;
         MoneySystem.Instance.SpendMoney(dropAmount);
         currentGivenMoney += dropAmount;
         float remappedValue = Remap(currentGivenMoney, 1, 10, 0, 1);
-        fillImg.fillAmount = remappedValue;
+        Debug.Log(remappedValue);
+        float one = unlockCost / 100;
+        float value = one * currentGivenMoney;
+        fillImg.fillAmount = value / 100;
 
-        yield return null;
         Animate();
 
-        yield return null;
         if (currentGivenMoney >= unlockCost)
         {
             isUnlocked = true;
@@ -65,7 +66,6 @@ public class UnlockArea : MonoBehaviour
         {
             isUnlocked = false;
         }
-        yield return null;
     }
 
     float Remap(float value, float low1, float high1, float low2, float high2)
@@ -76,10 +76,13 @@ public class UnlockArea : MonoBehaviour
     void Animate()
     {
         GameObject moneyTmp = Instantiate(MoneySystem.Instance.moneyPf);
-        moneyTmp.transform.DOMove(transform.position + new Vector3(Random.Range(0.5f, 0.75f), 1.5f, Random.Range(0.5f, 1.5f)), Random.Range(0.5f, 1f))
-                            .From(transform.position).SetEase(Ease.OutBounce).OnComplete(() =>
+        moneyTmp.transform.DOMove(Player.Instance.transform.position + Vector3.up * 2.5f, Random.Range(0.25f, 0.5f))
+        .From(Player.Instance.transform.position).SetEase(Ease.OutBounce).OnComplete(() =>
         {
-            Destroy(moneyTmp);
+            moneyTmp.transform.DOMove(transform.position, Random.Range(0.25f, 0.5f)).SetEase(Ease.OutBounce).OnComplete(() =>
+            {
+                Destroy(moneyTmp);
+            });
         });
     }
 
