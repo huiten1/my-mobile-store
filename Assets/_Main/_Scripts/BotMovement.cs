@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class BotMovement : MonoBehaviour
 {
     public bool canMove;
+    public Transform targetPos;
     public Vector3 offset;
     public float moveSpeed;
     public NavMeshAgent navMeshAgent;
@@ -21,7 +22,7 @@ public class BotMovement : MonoBehaviour
     private void Update()
     {
         if (!canMove) return;
-        MoveToTarget(Player.Instance.transform);
+        MoveToTarget(targetPos);
     }
     public void MoveToTarget(Transform target)
     {

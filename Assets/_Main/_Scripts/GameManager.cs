@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("UI")]
-    public Canvas mainCanvas;
     public static GameManager Instance;
 
     public enum GameState
@@ -17,9 +15,12 @@ public class GameManager : MonoBehaviour
         Fail,
         Paused
     }
-
+    [Header("Game")]
     public GameState gameState;
     public static event Action<GameState> OnGameStateChanged;
+
+    [Header("UI")]
+    public Canvas mainCanvas;
 
 
 

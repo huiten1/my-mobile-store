@@ -28,8 +28,6 @@ public class Money : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            MoneySystem.Instance.AddMoney(moneyAmount);
-
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
             GameObject moneySpriteTmp = Instantiate(moneySprite, MoneySystem.Instance.parentTf);
             moneySpriteTmp.transform.position = screenPosition;
@@ -39,7 +37,8 @@ public class Money : MonoBehaviour
             moneySpriteTmp.transform.DOMove(MoneySystem.Instance.targetTf.position, duration).SetEase(easeType).OnComplete(() =>
             {
                 Destroy(moneySpriteTmp);
-                MoneySystem.Instance.targetTf.DOScale(Vector3.one * 0.8f, 0.5f).From(Vector3.one * 1.2f).SetEase(Ease.InOutBounce).OnComplete(() =>
+                MoneySystem.Instance.AddMoney(moneyAmount);
+                MoneySystem.Instance.targetTf.DOScale(Vector3.one * 0.9f, 0.35f).From(Vector3.one * 1.15f).SetEase(Ease.InOutBounce).OnComplete(() =>
                 {
                     MoneySystem.Instance.targetTf.localScale = Vector3.one;
                 });

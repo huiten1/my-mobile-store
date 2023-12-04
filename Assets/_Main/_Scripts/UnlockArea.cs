@@ -14,7 +14,8 @@ public class UnlockArea : MonoBehaviour
     public List<Transform> points = new List<Transform>();
     public Canvas canvas;
     public Image fillImg;
-    private int currentGivenMoney;
+    public int currentGivenMoney;
+    Vector3 scale;
 
 
     private void Start()
@@ -30,7 +31,7 @@ public class UnlockArea : MonoBehaviour
 
         fillImg.fillAmount = 0;
         currentGivenMoney = 0;
-        // Debug.Log("REMAPPED VALUE " + Remap(5, 1, 10, 0, 1));
+        scale = transform.lossyScale;
     }
 
     private void OnTriggerStay(Collider other)
@@ -44,37 +45,7 @@ public class UnlockArea : MonoBehaviour
     void Unlock()
     {
         if (MoneySystem.Instance.playerMoney <= 0) return;
-        int dropAmount = 1;
-        MoneySystem.Instance.SpendMoney(dropAmount);
-        currentGivenMoney += dropAmount;
-        float remappedValue = Remap(currentGivenMoney, 1, 10, 0, 1);
-        Debug.Log(remappedValue);
-        float one = unlockCost / 100;
-        float value = one * currentGivenMoney;
-        fillImg.fillAmount = value / 100;
 
-        Animate();
-
-        if (currentGivenMoney >= unlockCost)
-        {
-            isUnlocked = true;
-            image.SetActive(false);
-            table.SetActive(true);
-            canvas.gameObject.SetActive(false);
-        }
-        else
-        {
-            isUnlocked = false;
-        }
-    }
-
-    float Remap(float value, float low1, float high1, float low2, float high2)
-    {
-        return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
-    }
-
-    void Animate()
-    {
         GameObject moneyTmp = Instantiate(MoneySystem.Instance.moneyPf);
         moneyTmp.transform.DOMove(Player.Instance.transform.position + Vector3.up * 2.5f, Random.Range(0.25f, 0.5f))
         .From(Player.Instance.transform.position).SetEase(Ease.OutBounce).OnComplete(() =>
@@ -82,8 +53,34 @@ public class UnlockArea : MonoBehaviour
             moneyTmp.transform.DOMove(transform.position, Random.Range(0.25f, 0.5f)).SetEase(Ease.OutBounce).OnComplete(() =>
             {
                 Destroy(moneyTmp);
+
+                if (currentGivenMoney >= unlockCost)
+                {
+                    isUnlocked = true;
+                    image.SetActive(false);
+                    table.SetActive(true);
+                    canvas.gameObject.SetActive(false);
+                    transform.DOScale(scale * 1.5f, 0.25f).From(scale).SetEase(Ease.InOutBounce).OnComplete(() =>
+                    {
+                        transform.DOScale(scale, 0.25f).SetEase(Ease.InOutBounce);
+                    });
+                }
+                else
+                {
+                    isUnlocked = false;
+                }
             });
         });
+
+        int dropAmount = 1;
+        currentGivenMoney += dropAmount;
+        float one = unlockCost;
+        float value = currentGivenMoney * one / (one * one);
+        fillImg.DOFillAmount(value, 0.5f).OnComplete(() =>
+        {
+            fillImg.fillAmount = value;
+        });
+        MoneySystem.Instance.SpendMoney(dropAmount);
     }
 
 }

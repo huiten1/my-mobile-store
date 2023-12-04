@@ -227,7 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa507383604677f4ab4571177871d32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: -2}
+  canMove: 1
+  targetPos: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   moveSpeed: 3
   navMeshAgent: {fileID: 2060175824820360368}
 --- !u!136 &2060175824820360369
