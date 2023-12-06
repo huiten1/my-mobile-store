@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,14 @@ public class UnlockArea : MonoBehaviour
     [Header("Unlock")]
     public bool isUnlocked;
     public int unlockCost;
+    public List<Sprite> bgSprites = new List<Sprite>();
     public Collider unlockTrigger;
-    public GameObject image;
+    private bool isStanding;
+    public SpriteRenderer bgImage;
     public GameObject table;
+    public GameObject cashier;
     public Canvas canvas;
+    public TMP_Text unlockCostTxt;
     public Image fillImg;
     public int currentGivenMoney;
 
@@ -36,24 +41,42 @@ public class UnlockArea : MonoBehaviour
         if (canvas != null)
             canvas.renderMode = RenderMode.WorldSpace;
 
+        bgImage.sprite = bgSprites[(int)tableType];
         fillImg.fillAmount = 0;
         currentGivenMoney = 0;
         scale = transform.lossyScale;
+        unlockCostTxt.text = unlockCost.ToString();
 
         SpawnItems(tableType);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void FixedUpdate()
     {
-        if (other.CompareTag("Player"))
+        if (isStanding)
         {
             if (!isUnlocked) Unlock();
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isStanding = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isStanding = false;
+        }
+    }
+
     void Unlock()
     {
-        if (MoneySystem.Instance.playerMoney <= 0) return;
+        if (MoneySystem.Instance.playerMoney <= 0 || currentGivenMoney >= unlockCost) return;
 
         GameObject moneyTmp = Instantiate(MoneySystem.Instance.moneyPf);
         moneyTmp.transform.DOMove(Player.Instance.transform.position + Vector3.up * 2.5f, Random.Range(0.25f, 0.5f))
@@ -66,8 +89,9 @@ public class UnlockArea : MonoBehaviour
                 if (currentGivenMoney >= unlockCost)
                 {
                     isUnlocked = true;
-                    image.SetActive(false);
-                    table.SetActive(true);
+                    bgImage.gameObject.SetActive(false);
+                    if (tableType == Item.Type.none) cashier.SetActive(true);
+                    else if (tableType != Item.Type.none) table.SetActive(true);
                     canvas.gameObject.SetActive(false);
                     transform.DOScale(scale * 1.5f, 0.25f).From(scale).SetEase(Ease.InOutBounce).OnComplete(() =>
                     {
@@ -89,6 +113,7 @@ public class UnlockArea : MonoBehaviour
         {
             fillImg.fillAmount = value;
         });
+        unlockCostTxt.text = (unlockCost - currentGivenMoney).ToString();
         MoneySystem.Instance.SpendMoney(dropAmount);
     }
 
