@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2097147994750573165}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1872034878704042798
 GameObject:
@@ -119,9 +119,10 @@ Transform:
   m_GameObject: {fileID: 2097147993127710409}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.6}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 3334611842014896389}
   m_Father: {fileID: 2097147994750573165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -208,7 +209,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2097147993127710390}
-  - {fileID: 3334611842014896389}
   - {fileID: 6436718748334811777}
   - {fileID: 3555565321697105381}
   m_Father: {fileID: 0}
@@ -227,15 +227,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUnlocked: 0
-  unlockCost: 25
-  boxTrigger: {fileID: 2097147994750573163}
+  unlockCost: 15
+  unlockTrigger: {fileID: 2097147994750573163}
   image: {fileID: 2097147993127710409}
   table: {fileID: 5915479440567545915}
-  points:
-  - {fileID: 0}
   canvas: {fileID: 1075815384315157475}
   fillImg: {fileID: 1300899711201540961}
   currentGivenMoney: 0
+  itemPf: {fileID: 595705776775115338, guid: 51631c2dd673d514fbd39a0065f95e18, type: 3}
+  itemPoints:
+  - {fileID: 3909128920267972099}
+  - {fileID: 510210690577711452}
+  - {fileID: 4138329858088620851}
+  - {fileID: 1975476247192521002}
+  - {fileID: 8411128133039114935}
+  - {fileID: 1539835810124450795}
+  inspectPoints:
+  - {fileID: 3555565321697105381}
 --- !u!65 &2097147994750573163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -275,14 +283,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3419430151426888083}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.05000001}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 582229692003562127}
-  m_Father: {fileID: 2097147994750573165}
-  m_RootOrder: 1
+  m_Father: {fileID: 2097147993127710390}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -596,7 +604,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 60984d8bf3d6dce439846df17b0cfc49, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60984d8bf3d6dce439846df17b0cfc49, type: 3}
       propertyPath: m_LocalScale.x

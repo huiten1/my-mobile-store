@@ -6,24 +6,31 @@ using UnityEngine.UI;
 
 public class UnlockArea : MonoBehaviour
 {
+    [Header("Unlock")]
     public bool isUnlocked;
     public int unlockCost;
-    public Collider boxTrigger;
+    public Collider unlockTrigger;
     public GameObject image;
     public GameObject table;
-    public List<Transform> points = new List<Transform>();
     public Canvas canvas;
     public Image fillImg;
     public int currentGivenMoney;
+
+    [Header("Item purchase")]
+    public GameObject itemPf;
+    public Item.Type tableType;
+    public List<Transform> itemPoints = new List<Transform>();
+    public List<Transform> inspectPoints = new List<Transform>();
+
     Vector3 scale;
 
 
     private void Start()
     {
-        if (boxTrigger == null)
+        if (unlockTrigger == null)
         {
-            boxTrigger = GetComponent<Collider>();
-            if (!boxTrigger.isTrigger) boxTrigger.isTrigger = true;
+            unlockTrigger = GetComponent<Collider>();
+            if (!unlockTrigger.isTrigger) unlockTrigger.isTrigger = true;
         }
 
         if (canvas != null)
@@ -32,6 +39,8 @@ public class UnlockArea : MonoBehaviour
         fillImg.fillAmount = 0;
         currentGivenMoney = 0;
         scale = transform.lossyScale;
+
+        SpawnItems(tableType);
     }
 
     private void OnTriggerStay(Collider other)
@@ -81,6 +90,17 @@ public class UnlockArea : MonoBehaviour
             fillImg.fillAmount = value;
         });
         MoneySystem.Instance.SpendMoney(dropAmount);
+    }
+
+    void SpawnItems(Item.Type type)
+    {
+        for (int i = 0; i < itemPoints.Count; i++)
+        {
+            GameObject itemTmp = Instantiate(itemPf, itemPoints[i]);
+            itemTmp.transform.eulerAngles = itemPoints[i].eulerAngles;
+            itemTmp.GetComponent<Item>().itemType = type;
+            itemTmp.GetComponent<Item>().SetType(type);
+        }
     }
 
 }

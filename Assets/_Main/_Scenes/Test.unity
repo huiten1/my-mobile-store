@@ -564,6 +564,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388209831}
     m_Modifications:
+    - target: {fileID: 2097147994750573162, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
+      propertyPath: tableType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2097147994750573164, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
       propertyPath: m_Name
       value: UnlockArea (2)
@@ -967,6 +971,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388209831}
     m_Modifications:
+    - target: {fileID: 2097147994750573162, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
+      propertyPath: tableType
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2097147994750573164, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
       propertyPath: m_Name
       value: UnlockArea (3)
@@ -2354,6 +2362,10 @@ PrefabInstance:
     - target: {fileID: 2097147993716409346, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097147994750573162, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
+      propertyPath: tableType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2097147994750573164, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
       propertyPath: m_Name
@@ -4075,11 +4087,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7834593601769522583, guid: 9c5fce59000a5084f8b8b8f8c8bc52f6, type: 3}
   m_PrefabInstance: {fileID: 739025935}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &742548763 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2483649763006266324, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
-  m_PrefabInstance: {fileID: 404650753}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &754013184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5560,6 +5567,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7834593601769522583, guid: 9c5fce59000a5084f8b8b8f8c8bc52f6, type: 3}
   m_PrefabInstance: {fileID: 1021348392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1068641944 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3555565321697105381, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
+  m_PrefabInstance: {fileID: 404650753}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1081277779
 GameObject:
@@ -8028,6 +8040,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388209831}
     m_Modifications:
+    - target: {fileID: 2097147994750573162, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
+      propertyPath: tableType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2097147994750573164, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
       propertyPath: m_Name
       value: UnlockArea (4)
@@ -8823,6 +8839,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388209831}
     m_Modifications:
+    - target: {fileID: 2097147994750573162, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
+      propertyPath: tableType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2097147994750573164, guid: bdbc1a44c01575e49a70f23a13659d85, type: 3}
       propertyPath: m_Name
       value: UnlockArea (1)
@@ -9189,7 +9209,7 @@ PrefabInstance:
     - target: {fileID: 2060175824820360375, guid: 151646c3b9af9eb4a9e11312f3e4f4d8, type: 3}
       propertyPath: targetPos
       value: 
-      objectReference: {fileID: 742548763}
+      objectReference: {fileID: 1068641944}
     - target: {fileID: 2060175824820360379, guid: 151646c3b9af9eb4a9e11312f3e4f4d8, type: 3}
       propertyPath: m_Name
       value: Bot
