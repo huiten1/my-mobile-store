@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed;
     public float xInput, yInput;
     public FloatingJoystick floatingJoystick;
+    public Animator animator;
 
     private void Start()
     {
@@ -36,7 +37,16 @@ public class Movement : MonoBehaviour
             if (xInput > 0.5f || xInput < -0.5f || yInput > 0.5f || yInput < -0.5f)
             {
                 transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward);
+                animator.SetBool("isMoving", true);
             }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
         }
     }
 }

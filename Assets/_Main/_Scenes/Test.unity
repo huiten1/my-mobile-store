@@ -6362,7 +6362,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: 0}
-  m_SizeDelta: {x: 115, y: -50}
+  m_SizeDelta: {x: 115, y: -23.999998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1619913550
 MonoBehaviour:
@@ -6384,7 +6384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f29be716a25ab4cd48381e56f98281da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64aec08f29b0bef41a8fa45a84f4a351, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9012,6 +9012,10 @@ PrefabInstance:
       propertyPath: floatingJoystick
       value: 
       objectReference: {fileID: 2014983095}
+    - target: {fileID: 6506662304252274206, guid: a660262b97526594c90fae08a5976155, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a660262b97526594c90fae08a5976155, type: 3}
 --- !u!1001 &3569772388260278619
