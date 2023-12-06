@@ -15,6 +15,7 @@ public class UnlockArea : MonoBehaviour
     private bool isStanding;
     public SpriteRenderer bgImage;
     public GameObject table;
+    public GameObject panel;
     public GameObject cashier;
     public Canvas canvas;
     public TMP_Text unlockCostTxt;
@@ -23,8 +24,9 @@ public class UnlockArea : MonoBehaviour
 
     [Header("Item purchase")]
     public GameObject itemPf;
-    public Item.Type tableType;
+    public Item.Type areaType;
     public List<Transform> itemPoints = new List<Transform>();
+    public List<Transform> airpodsPoints = new List<Transform>();
     public List<Transform> inspectPoints = new List<Transform>();
 
     Vector3 scale;
@@ -41,16 +43,23 @@ public class UnlockArea : MonoBehaviour
         if (canvas != null)
             canvas.renderMode = RenderMode.WorldSpace;
 
-        bgImage.sprite = bgSprites[(int)tableType];
+        bgImage.sprite = bgSprites[(int)areaType];
         fillImg.fillAmount = 0;
         currentGivenMoney = 0;
         scale = transform.lossyScale;
         unlockCostTxt.text = unlockCost.ToString();
 
-        SpawnItems(tableType);
+        if (areaType == Item.Type.airPods)
+            SpawnItems(areaType, airpodsPoints);
+        else if (areaType == Item.Type.none)
+        {
+
+        }
+        else if (areaType != Item.Type.none && areaType != Item.Type.airPods)
+            SpawnItems(areaType, itemPoints);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (isStanding)
         {
@@ -89,14 +98,15 @@ public class UnlockArea : MonoBehaviour
                 if (currentGivenMoney >= unlockCost)
                 {
                     isUnlocked = true;
-                    bgImage.gameObject.SetActive(false);
-                    if (tableType == Item.Type.none) cashier.SetActive(true);
-                    else if (tableType != Item.Type.none) table.SetActive(true);
                     canvas.gameObject.SetActive(false);
                     transform.DOScale(scale * 1.5f, 0.25f).From(scale).SetEase(Ease.InOutBounce).OnComplete(() =>
                     {
                         transform.DOScale(scale, 0.25f).SetEase(Ease.InOutBounce);
+                        if (areaType == Item.Type.none) cashier.SetActive(true);
+                        else if (areaType == Item.Type.airPods) panel.SetActive(true);
+                        else if (areaType != Item.Type.none) table.SetActive(true);
                     });
+                    bgImage.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -117,12 +127,12 @@ public class UnlockArea : MonoBehaviour
         MoneySystem.Instance.SpendMoney(dropAmount);
     }
 
-    void SpawnItems(Item.Type type)
+    void SpawnItems(Item.Type type, List<Transform> points)
     {
-        for (int i = 0; i < itemPoints.Count; i++)
+        for (int i = 0; i < points.Count; i++)
         {
-            GameObject itemTmp = Instantiate(itemPf, itemPoints[i]);
-            itemTmp.transform.eulerAngles = itemPoints[i].eulerAngles;
+            GameObject itemTmp = Instantiate(itemPf, points[i]);
+            itemTmp.transform.eulerAngles = points[i].eulerAngles;
             itemTmp.GetComponent<Item>().itemType = type;
             itemTmp.GetComponent<Item>().SetType(type);
         }
