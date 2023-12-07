@@ -5,11 +5,21 @@ using DG.Tweening;
 
 public class Movement : MonoBehaviour
 {
+    public static Movement Instance;
+
     public bool isHold;
     public float moveSpeed;
     public float xInput, yInput;
     public FloatingJoystick floatingJoystick;
     public Animator animator;
+    public GameObject segway;
+
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
