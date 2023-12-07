@@ -42,6 +42,7 @@ public class Booster : MonoBehaviour
 
     public void Activate()
     {
+        Movement.Instance.smokeExplosionWhite.Play();
         Movement.Instance.segway.SetActive(true);
         Movement.Instance.animator.SetBool("isRiding", true);
         currentSpeed = Movement.Instance.moveSpeed;
@@ -51,6 +52,7 @@ public class Booster : MonoBehaviour
 
     public void Deactivate()
     {
+        Movement.Instance.smokeExplosionWhite.Play();
         Movement.Instance.segway.SetActive(false);
         Movement.Instance.animator.SetBool("isRiding", false);
         Movement.Instance.moveSpeed = currentSpeed;

@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     public FloatingJoystick floatingJoystick;
     public Animator animator;
     public GameObject segway;
+    public ParticleSystem smokeExplosionWhite;
 
 
 
