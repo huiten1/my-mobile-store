@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.alkimeegames.taglayertypegenerator": "https://github.com/AlkimeeGames/TagLayerTypeGenerator.git#main",
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git",
     "com.unity.2d.sprite": "1.0.0",
@@ -14,7 +15,7 @@
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.purchasing": "4.9.3",
     "com.unity.recorder": "3.0.3",
-    "com.unity.render-pipelines.universal": "12.1.12",
+    "com.unity.render-pipelines.universal": "12.1.10",
     "com.unity.test-framework": "1.1.33",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.5",

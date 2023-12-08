@@ -50,7 +50,7 @@ MonoBehaviour:
   moneySprite: {fileID: 1525662054013092757, guid: 59684514544a95b4abbe19d1f70d2cfd, type: 3}
   minDuration: 0.7
   maxDuration: 1.5
-  easeType: 31
+  easeType: 3
 --- !u!65 &7834593601769522582
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2060175824820360380}
   - component: {fileID: 2060175824820360374}
-  - component: {fileID: 2060175824820360375}
   - component: {fileID: 2060175824820360383}
   - component: {fileID: 2060175824820360368}
   - component: {fileID: 5312779230238668353}
@@ -49,23 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8227e551b236742a34d2ecc33b9441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2060175824820360375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060175824820360379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa507383604677f4ab4571177871d32f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canMove: 1
-  targetPos: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
-  moveSpeed: 3
-  navMeshAgent: {fileID: 2060175824820360368}
 --- !u!54 &2060175824820360383
 Rigidbody:
   m_ObjectHideFlags: 0

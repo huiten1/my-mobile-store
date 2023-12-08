@@ -14,17 +14,9 @@ public class Movement : MonoBehaviour
     public Animator animator;
     public GameObject segway;
     public ParticleSystem smokeExplosionWhite;
-
-
-
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
-
     }
     private void Update()
     {

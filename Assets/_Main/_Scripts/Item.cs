@@ -11,12 +11,7 @@ public class Item : MonoBehaviour
 
     public Type itemType;
     private Transform _currentType;
-
-    private void Start()
-    {
-        // SetType(itemType);
-    }
-
+    public int price;
     public void SetType(Type type)
     {
         itemType = type;

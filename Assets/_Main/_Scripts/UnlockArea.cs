@@ -89,7 +89,9 @@ public class UnlockArea : MonoBehaviour
 
         GameObject moneyTmp = Instantiate(MoneySystem.Instance.moneyPf);
         moneyTmp.transform.DOMove(Player.Instance.transform.position + Vector3.up * 2.5f, Random.Range(0.25f, 0.5f))
-        .From(Player.Instance.transform.position).SetEase(Ease.OutBounce).OnComplete(() =>
+        .From(Player.Instance.transform.position)
+        .SetEase(Ease.OutBounce)
+        .OnComplete(() =>
         {
             moneyTmp.transform.DOMove(transform.position, Random.Range(0.25f, 0.5f)).SetEase(Ease.OutBounce).OnComplete(() =>
             {
