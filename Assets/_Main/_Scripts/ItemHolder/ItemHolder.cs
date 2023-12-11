@@ -13,15 +13,15 @@ namespace _Main._Scripts
 
         public abstract GameObject Get(string filter);
         // public abstract GameObject FindItemByType
-        public virtual void GiveItem(ItemHolder holder)
+        public virtual void GiveItemTo(ItemHolder holder)
         {
             holder.Add(Pop());
         }
-        public virtual void GiveItem(GameObject holder)
+        public virtual void GiveItemTo(GameObject holder)
         {
             if (holder.GetComponent<ItemHolder>())
             {
-                GiveItem(holder.GetComponent<ItemHolder>());
+                GiveItemTo(holder.GetComponent<ItemHolder>());
             }
         }
     }

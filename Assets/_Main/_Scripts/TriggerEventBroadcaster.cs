@@ -26,7 +26,7 @@ namespace _Main._Scripts
             }
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.CompareTag(tagToCheck))
             {

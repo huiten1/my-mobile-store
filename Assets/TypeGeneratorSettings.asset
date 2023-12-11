@@ -15,12 +15,12 @@ MonoBehaviour:
   Tag:
     AutoGenerate: 1
     TypeName: Tag
-    FilePath: _Main/_Scripts/Tag.cs
-    Namespace: mobilestore
+    FilePath: Scripts/Tag.cs
+    Namespace: mobile-store
     AssemblyDefinition: {fileID: 0}
   Layer:
     AutoGenerate: 1
     TypeName: Layer
-    FilePath: _Main/_Scripts/Layer.cs
-    Namespace: mobilestore
+    FilePath: Scripts/Layer.cs
+    Namespace: mobile-store
     AssemblyDefinition: {fileID: 0}

@@ -17,9 +17,7 @@ public class MoneySystem : MonoBehaviour
     public GameObject moneyPf;
 
     public int playerMoney;
-
-
-
+    
     private void Awake()
     {
         Instance = this;

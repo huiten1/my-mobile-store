@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.alkimeegames.taglayertypegenerator": {
-      "version": "https://github.com/AlkimeeGames/TagLayerTypeGenerator.git#main",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "79bdfc79b9e3ae28ec4edca5c2394242df507123"
-    },
     "com.autodesk.fbx": {
       "version": "4.1.2",
       "depth": 1,

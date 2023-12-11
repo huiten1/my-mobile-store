@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Movement : MonoBehaviour
     public Animator animator;
     public GameObject segway;
     public ParticleSystem smokeExplosionWhite;
+
+    public CharacterController cc;
     private void Awake()
     {
         Instance = this;
@@ -35,11 +38,17 @@ public class Movement : MonoBehaviour
             yInput = floatingJoystick.Vertical;
 
             Vector3 direction = new Vector3(xInput, 0, yInput);
+            
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            transform.DORotate(new Vector3(0, angle + 45f, 0), 0.5f);
-            if (xInput > 0.5f || xInput < -0.5f || yInput > 0.5f || yInput < -0.5f)
+            cc.transform.rotation = Quaternion.Euler(0,angle + 45f,0);
+            
+            if (floatingJoystick.Direction.magnitude>0.5f)
             {
-                transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward);
+                cc.Move(transform.forward * (moveSpeed * Time.deltaTime));
+                var pos = transform.position;
+                pos.y = 0;
+                cc.transform.position = pos;
+                // rb.MovePosition(rb.position + moveSpeed * Time.deltaTime * rb.transform.forward);
                 animator.SetBool("isMoving", true);
             }
             else
@@ -51,5 +60,12 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
+        
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(!hit.rigidbody) return;
+        hit.rigidbody.AddForceAtPosition(-hit.normal*10f,hit.point);
     }
 }

@@ -21,7 +21,6 @@ namespace _Main._Scripts
         public override bool IsFull => itemSlots.All(e => !e.IsEmpty);
         public override bool HasItems => itemSlots.Any(e => !e.IsEmpty);
         private ItemSlot[] itemSlots;
-
         private void Awake()
         {
             SetupItemSlots();
