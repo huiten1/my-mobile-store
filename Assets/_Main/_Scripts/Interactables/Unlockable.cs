@@ -5,6 +5,9 @@ using _Main._Scripts.Provider;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using Random = UnityEngine.Random;
+
 
 namespace _Main._Scripts.Money
 {
@@ -15,7 +18,7 @@ namespace _Main._Scripts.Money
         public bool shouldPopulate;
         [SerializeField] private GameObject itemToPopulate;
         private int currentPrice;
-
+        [SerializeField] private UnityEvent onUnlock;
         private bool unlocked;
         private void Start()
         {
@@ -31,27 +34,30 @@ namespace _Main._Scripts.Money
             MoneySystem.Instance.SpendMoney(1);
             var money = Instantiate(MoneySystem.Instance.moneyPf,interactor.transform.position + Vector3.up,interactor.transform.rotation);
             var seq = DOTween.Sequence();
+            money.transform.localScale = Vector3.zero;
             seq.Append(money.transform.DOMoveY(transform.position.y, 0.6f));
-            seq.Insert(0,money.transform.DOMoveX(transform.position.x, 0.6f).SetEase(Ease.OutSine));
-            seq.Insert(0,money.transform.DOMoveZ(transform.position.z, 0.6f).SetEase(Ease.InBack));
-            seq.Append(money.transform.DOPunchScale(Vector3.one*0.2f,0.1f));
+            seq.Insert(0,money.transform.DOMoveX(transform.position.x, 0.6f).SetEase(Random.Range(0,1f)>0.5f? Ease.OutSine : Ease.InSine ));
+            seq.Insert(0,money.transform.DOMoveZ(transform.position.z, 0.6f).SetEase(Random.Range(0,1f)>0.5f? Ease.InQuad : Ease.OutQuad));
+            seq.Insert(0, money.transform.DOScale(1, 0.6f));
+            seq.Append(money.transform.DOPunchScale(Vector3.one*0.2f,0.3f));
             seq.onComplete += () =>
             {
+                // currentPrice -= 1;
                 ValueChanged?.Invoke(Value);
                 Destroy(money.gameObject);
             };
+            
             currentPrice -= 1;
             
             if (currentPrice > 0) return;
             
+            onUnlock?.Invoke();
             unlocked = true;
             gameObject.SetActive(false);
             
             var spawnedObject = Instantiate(prefabToUnlock, transform.position + prefabToUnlock.transform.position,prefabToUnlock.transform.
                 rotation);
             spawnedObject.transform.DOPunchScale(Vector3.one * 0.1f, 0.6f, 1, 1f);
-            
-            
             
             if (spawnedObject.GetComponent<ItemMoneyTransaction>())
             {
@@ -65,14 +71,12 @@ namespace _Main._Scripts.Money
             {
                 var holder = spawnedObject.GetComponent<LimitedItemHolder>();
                 FreeIsleProvider.Instance.Add(holder);
-                
                 if (!shouldPopulate) return;
                 for (int i = 0; i < holder.MaxItemCount; i++)
                 {
                     holder.Add( Instantiate(itemToPopulate));
                 }
             }
-            
         }
         public ProgressData Value => new()
             { percentage = 1 - (float)currentPrice / price, text = currentPrice.ToString() };

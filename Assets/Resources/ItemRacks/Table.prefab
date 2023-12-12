@@ -328,6 +328,21 @@ MonoBehaviour:
   - {fileID: 5785151577230158752}
   - {fileID: 4582665381397571645}
   - {fileID: 6808361927222045025}
+  onFull:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5632405923d9aea40a12ef29660a1696, type: 2}
+        m_TargetAssemblyTypeName: Lib.GameEvent.GameEvent, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7244410410061379520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,8 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemholder: {fileID: 8195843984302793190}
   shouldGiveTo: Customer
+  filter: 
   shouldGetFrom: Player
-  itemType: 0
 --- !u!65 &8195843984302793191
 BoxCollider:
   m_ObjectHideFlags: 0

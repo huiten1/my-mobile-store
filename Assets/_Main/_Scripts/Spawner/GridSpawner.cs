@@ -64,12 +64,10 @@ namespace _Main._Scripts.Spawner
                     for (int z = 0; z < length; z++)
                     {
                         var center = new Vector3(x * widthOffset, y * heightOffset, z * lengthOffset) ;
-                        var size = new Vector3(widthOffset, heightOffset, lengthOffset);
-                        center -= size / 2f;
-                        Gizmos.color = Color.blue;
-                        Gizmos.DrawWireCube( 
+                        Gizmos.color = Color.Lerp(Color.red, Color.blue, new Vector3(x,y,z).magnitude / new Vector3(width,height,length).magnitude);
+                        Gizmos.DrawSphere( 
                             transform.TransformPoint(center)
-                            ,size);
+                            ,0.1f);
                     }
                 }
                 

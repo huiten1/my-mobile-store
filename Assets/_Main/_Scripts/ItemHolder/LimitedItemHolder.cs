@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Main._Scripts
 {
@@ -17,6 +18,8 @@ namespace _Main._Scripts
             public GameObject item;
             public bool IsEmpty => item==null;
         }
+
+        public UnityEvent onFull;
 
         public override bool IsFull => itemSlots.All(e => !e.IsEmpty);
         public override bool HasItems => itemSlots.Any(e => !e.IsEmpty);
@@ -52,6 +55,11 @@ namespace _Main._Scripts
                     item.transform.DOLocalJump(Vector3.zero, 1f, 1, 0.6f);
                     return;
                 }
+            }
+
+            if (IsFull)
+            {
+                onFull?.Invoke();
             }
         }   
 

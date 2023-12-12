@@ -1,0 +1,79 @@
+
+.title{
+    font-size: 72px;
+}
+.root{
+    position: absolute;
+    bottom: -30%;
+    left: 0;
+    right: 0;
+    top: 30%;
+    /*height: 70%;*/
+}
+.btn{
+    padding: 8px;
+    background-color:#383838;
+    font-size: 64px;
+    color: #BDBDBD;
+}
+.reset-btn{
+    font-size: 36px;
+    background-color:#585858;
+    border-color: #303030;
+    border-width: 3px;
+    border-radius: 5%;
+}
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container{
+    background-color: #383838;
+    padding: 16px;
+    display: flex;
+    height: 80%;
+}
+
+.field-name{
+    color: #BDBDBD;
+    font-size: 36px;
+    width: 50%;
+}
+
+.field-container{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+}
+.toggle{
+    height: 64px;
+    width: 64px;
+}
+.toggle .unity-toggle__input{
+    flex-grow: 1;
+}
+#unity-checkmark {
+    -unity-background-scale-mode: scale-to-fit;
+    width: 100%;
+    height: 100%;
+    border-width: 2px;
+    border-color: black;
+    background-color: #282828;
+    -unity-background-image-tint-color: #BDBDBD;
+}
+.field{
+    border-radius: 2%;
+    font-size: 36px;
+    flex-grow: 1;
+    /*color: black;*/
+}
+.field .field-input{
+    color: #BDBDBD;
+    background-color: #282828;
+    border-radius: 5%;
+    border-color: black;
+    border-width: 2px;
+}

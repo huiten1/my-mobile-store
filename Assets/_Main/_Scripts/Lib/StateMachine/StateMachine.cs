@@ -6,13 +6,12 @@ namespace Lib.StateMachine
     {
         private Dictionary<string,IState> stateDict = new();
         protected IState currentState;
-
+        public IState CurrentState => currentState;
         public void AddState(IState state)
         {
             stateDict.Add(state.GetType().Name, state);
             state.ChangeState += SetState;
         }
-        
         public void SetState(string stateName)
         {
             if (stateDict.TryGetValue(stateName, out var state))

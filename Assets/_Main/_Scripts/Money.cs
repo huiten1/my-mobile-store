@@ -32,7 +32,6 @@ public class Money : MonoBehaviour
             GameObject moneySpriteTmp = Instantiate(moneySprite, MoneySystem.Instance.parentTf);
             moneySpriteTmp.transform.position = screenPosition;
             Destroy(gameObject);
-
             float duration = Random.Range(minDuration, maxDuration);
             moneySpriteTmp.transform.DOMove(MoneySystem.Instance.targetTf.position, duration).SetEase(easeType).OnComplete(() =>
             {
@@ -43,17 +42,15 @@ public class Money : MonoBehaviour
                     MoneySystem.Instance.targetTf.localScale = Vector3.one;
                 });
             });
-
         }
     }
 
     void SpawnAnimate()
     {
         originalScale = transform.localScale;
-        transform.DOScale(originalScale, 0.75f).From(originalScale * 0.5f).SetEase(Ease.InElastic).OnComplete(() =>
-        {
-
-        });
+        transform.DOScale(originalScale, 0.75f)
+            .From(originalScale * 0.5f)
+            .SetEase(Ease.OutSine);
     }
 
 
