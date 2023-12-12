@@ -365,6 +365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cashier
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -415,11 +419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
@@ -709,6 +713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MacbookArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -759,11 +767,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
@@ -1023,6 +1031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IpadArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1073,11 +1085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
@@ -1923,7 +1935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &282088898
 Transform:
   m_ObjectHideFlags: 0
@@ -7014,6 +7026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cashier_2
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7064,11 +7080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
@@ -8688,6 +8704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImacArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8738,11 +8758,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
@@ -8973,6 +8993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppleWatchArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -9023,11 +9047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
@@ -9353,7 +9377,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1453771203
 Transform:
   m_ObjectHideFlags: 0
@@ -10458,6 +10482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeadPhoneArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10508,11 +10536,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
@@ -14440,6 +14468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IphoneArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2375334581895371012, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2375334581895371013, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -14490,11 +14522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334582196560347, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2375334583627951583, guid: 004aa0028aa784b4d9f50faf20f652c2, type: 3}
       propertyPath: m_Sprite
