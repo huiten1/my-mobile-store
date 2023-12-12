@@ -53,14 +53,16 @@ namespace _Main._Scripts
                     itemSlot.item = item;
                     item.transform.SetParent(itemSlot.slotTf,false);
                     item.transform.DOLocalJump(Vector3.zero, 1f, 1, 0.6f);
+                    
+                    if (IsFull)
+                    {
+                        onFull?.Invoke();
+                    }
                     return;
                 }
             }
 
-            if (IsFull)
-            {
-                onFull?.Invoke();
-            }
+          
         }   
 
         public override GameObject Pop()

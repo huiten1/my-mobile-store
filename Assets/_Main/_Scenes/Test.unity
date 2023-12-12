@@ -9114,7 +9114,7 @@ MonoBehaviour:
     exitEvent: {fileID: 11400000, guid: 48b5eb2cbcda68e4ca7d786a7cf0e0e1, type: 2}
     objectToUnlock: {fileID: 790201216}
     arrow: {fileID: 441718676}
-    text: Unlock pacbook!
+    text: Unlock Macbook!
   - OnActivate:
       m_PersistentCalls:
         m_Calls: []
@@ -9128,7 +9128,7 @@ MonoBehaviour:
     exitEvent: {fileID: 11400000, guid: 5632405923d9aea40a12ef29660a1696, type: 2}
     objectToUnlock: {fileID: 136030739}
     arrow: {fileID: 441718676}
-    text: Put pacbook on the table!
+    text: Put items on table!
   - OnActivate:
       m_PersistentCalls:
         m_Calls:
