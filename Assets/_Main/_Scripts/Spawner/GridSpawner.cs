@@ -43,7 +43,7 @@ namespace _Main._Scripts.Spawner
                 var targetIndex = emptyIndexex[i];
 
                 int x = targetIndex / length  % width;
-                int y = targetIndex / (width * height) ;
+                int y = targetIndex / (width * length) ;
                 int z = targetIndex % length;
                 Vector3 spawnPoint = new Vector3(x * widthOffset,y * heightOffset,z*lengthOffset);
                 var spawnedObject =Instantiate(prefab,transform.TransformPoint( spawnPoint), Quaternion.identity);

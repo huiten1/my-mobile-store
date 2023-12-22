@@ -131,7 +131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4842701151734769894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -154,18 +154,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPositionTfs:
-  - {fileID: 4842701152250461200}
-  - {fileID: 4842701152264062225}
-  - {fileID: 4842701153034820169}
-  - {fileID: 4842701152185743476}
-  - {fileID: 4842701151744053757}
-  - {fileID: 4842701152613810229}
-  - {fileID: 4842701152180912356}
-  - {fileID: 4842701152405936971}
-  - {fileID: 4842701152557698357}
-  - {fileID: 4842701153000725930}
-  - {fileID: 4842701151455512049}
   - {fileID: 4842701151973896771}
+  - {fileID: 4842701151455512049}
+  - {fileID: 4842701153000725930}
+  - {fileID: 4842701152557698357}
+  - {fileID: 4842701152405936971}
+  - {fileID: 4842701152180912356}
+  - {fileID: 4842701152613810229}
+  - {fileID: 4842701151744053757}
+  - {fileID: 4842701152185743476}
+  - {fileID: 4842701153034820169}
+  - {fileID: 4842701152264062225}
+  - {fileID: 4842701152250461200}
+  onFull:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEmpty:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4842701151734769891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToPopulate: {fileID: 1325779956366904928, guid: a077166a9a665f34ba72afa0eca196ac, type: 3}
+  shouldPopulate: 1
   itemRack: {fileID: 4842701151734769890}
+  spawnPeriod: 1
 --- !u!114 &4842701151734769892
 MonoBehaviour:
   m_ObjectHideFlags: 0

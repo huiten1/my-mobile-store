@@ -21,6 +21,12 @@ public class Movement : MonoBehaviour
     {
         Instance = this;
     }
+
+    private void Start()
+    {
+        moveSpeed = GameManager.Instance.GameData.playerMoveSpeed;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButton(0))
@@ -48,7 +54,6 @@ public class Movement : MonoBehaviour
                 var pos = transform.position;
                 pos.y = 0;
                 cc.transform.position = pos;
-                // rb.MovePosition(rb.position + moveSpeed * Time.deltaTime * rb.transform.forward);
                 animator.SetBool("isMoving", true);
             }
             else

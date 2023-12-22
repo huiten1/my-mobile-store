@@ -12,34 +12,49 @@ namespace _Main._Scripts
         public override bool IsFull => items.Count == capacity;
         public int capacity = 5;
         public override bool HasItems => items.Count > 0;
-        
+        public bool shouldAdd = true;
+
+        private float stackHeight = 0;
         public override void Add(GameObject item)
         {
+            if(!shouldAdd) return;
             if(!item) return;
             if(IsFull) return;
-            item.transform.SetParent(holderTf,false);
+            item.transform.SetParent(holderTf,true);
             items.Add(item);
-            var targetLocalPos = new Vector3(0, items.Count - 1, 0);
-            item.transform.DOLocalJump(targetLocalPos, 1f, 1, 0.6f);
+            
+            item.GetComponent<Item>()?.OnPickedUp?.Invoke();
+            
+            
+
+            var itemBound =  item.GetComponentInChildren<Collider>().bounds;
+            var targetLocalPos = new Vector3(0, stackHeight, 0);
+            stackHeight += itemBound.size.y;
+            item.transform.DOLocalRotate(Vector3.zero, 0.6f);
+            item.transform.DOLocalJump(targetLocalPos, 1f, 1, 0.6f).SetEase(Ease.OutQuad);
         }
         public override GameObject Pop()
         {
             if (items.Count == 0) return null;
             var res = items.Last();
-             items.RemoveAt(items.Count-1);
+            stackHeight -= res.GetComponentInChildren<Collider>().bounds.size.y;
+            items.RemoveAt(items.Count-1);
              return res;
         }
 
         void UpdateStack()
         {
+            float height = 0;
             for (int i = 0; i < items.Count; i++)
             {
-                var targetLocalPos = new Vector3(0, i, 0);
+                float sizeY =items[i].GetComponentInChildren<Collider>().bounds.size.y;
+                var targetLocalPos = new Vector3(0, height, 0);
+                height += sizeY;
                 items[i].transform.DOLocalMove(targetLocalPos, 0.6f);
             }
         }
 
-        public override GameObject Get(string filter)
+        public override GameObject Get(string filter,GameObject interactor)
         {
             int count = items.Count;
             for (int i = count - 1; i >= 0; i--)

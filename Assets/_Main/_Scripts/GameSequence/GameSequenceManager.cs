@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Game.UI;
+using _Main._Scripts.SaveLoad;
 using Lib.GameEvent;
 using Lib.StateMachine;
 using UnityEngine;
@@ -12,33 +13,48 @@ namespace _Main._Scripts.GameSequence
     public class GameSequenceManager : MonoBehaviour , IIndicator<string>
     {
         public List<SequenceState> sequenceStates= new ();
-
+        [SerializeField] private GameObject[] objectsToDisable;
+        [SerializeField] private GameObject[] objectsToEnable;
         private SequenceState currentState;
         private int currentStateIndex;
         private void Start()
         {
-            foreach (var sequenceState in sequenceStates)
+            bool hasOnboarding = SaveManager.Load<GameData>().onBoarding;
+
+
+            foreach (var go in objectsToEnable)
             {
-                sequenceState.exitEvent.AddListener(NextState);
+                go.SetActive(hasOnboarding);
             }
+            
+            foreach (var go in objectsToDisable)
+            {
+                go.SetActive(!hasOnboarding);
+            }
+            
+            if(!hasOnboarding) return;
 
             currentState = sequenceStates[0];
+            currentState.exitEvent.AddListener(NextState);
             currentState.Enter();
         }
 
         private void NextState()
         {
+            sequenceStates[currentStateIndex].exitEvent.RemoveListener(NextState);
+            currentStateIndex++;
             if (currentStateIndex >= sequenceStates.Count)
             {
                 return;
             }
-            currentStateIndex++;
+           
             currentState = sequenceStates[currentStateIndex];
             currentState.Enter();
+            currentState.exitEvent.AddListener(NextState);
             ValueChanged?.Invoke(Value);
         }
         
-        public string Value => currentState.text;
+        public string Value => currentState?.text ?? "";
         public event Action<string> ValueChanged;
     }
 
@@ -55,7 +71,7 @@ namespace _Main._Scripts.GameSequence
             OnActivate?.Invoke();
             if(!objectToUnlock) return;
             objectToUnlock.gameObject.SetActive(true);
-            arrow.transform.position = objectToUnlock.transform.position + Vector3.up * 5;
+            arrow.transform.position = objectToUnlock.transform.position + Vector3.up * 3;
         }
     }
     

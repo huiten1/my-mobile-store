@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lib.GameEvent;
 using UnityEngine;
 
 public class Booster : MonoBehaviour
@@ -8,16 +10,14 @@ public class Booster : MonoBehaviour
     {
         speed
     }
-
     public BoosterType boosterType;
-    public Collider trigger;
     public float speedBoostAmount;
     public float duration;
     private float currentSpeed;
     private bool isActive;
     private float elapsedTime;
 
-
+    [SerializeField] private GameEvent boostEvent;
 
     private void Update()
     {
@@ -32,14 +32,14 @@ public class Booster : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            if (!isActive) Activate();
-        }
+        speedBoostAmount = GameManager.Instance.GameData.scooterBonusSpeed;
+        yield return null;
+        Debug.Log("Trying to add listner");
+        boostEvent.AddListener(Activate);
     }
-
+    
     public void Activate()
     {
         Movement.Instance.smokeExplosionWhite.Play();

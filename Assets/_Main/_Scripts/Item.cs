@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Item : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class Item : MonoBehaviour
         none = 0, iWatch = 1, iPhone = 2, iPad = 3, macBook = 4, iMac = 5, airPods = 6
     }
 
+    public UnityEvent OnPickedUp;
+    public UnityEvent OnPlaced;
     public Type itemType;
     private Transform _currentType;
     public int price;
+
+    public Vector3 insideBoxRotation;
     public void SetType(Type type)
     {
         itemType = type;
@@ -22,8 +27,4 @@ public class Item : MonoBehaviour
             _currentType = transform.GetChild(i);
         }
     }
-
-
-
-
 }

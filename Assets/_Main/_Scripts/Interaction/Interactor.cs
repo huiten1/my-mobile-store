@@ -1,4 +1,5 @@
 ﻿using System;
+using _Main._Scripts.Money;
 using UnityEngine;
 
 namespace _Main._Scripts.Interaction
@@ -8,6 +9,7 @@ namespace _Main._Scripts.Interaction
         [SerializeField] private float tickTime = 0.25f;
         private float t;
         private IInteractable currentInteractable;
+        public bool NotInteract;
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<IInteractable>() != null)
@@ -18,9 +20,19 @@ namespace _Main._Scripts.Interaction
 
         private void Update()
         {
+            if (NotInteract) return;
+            
             if (currentInteractable == null)
             {
                 return;
+            }
+
+            if (currentInteractable is MonoBehaviour behaviour)
+            {
+                if (!behaviour)
+                {
+                    currentInteractable = null;
+                }
             }
             
             if (t > tickTime)

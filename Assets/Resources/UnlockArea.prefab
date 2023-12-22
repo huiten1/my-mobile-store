@@ -300,8 +300,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 2.5099208, y: 2, z: 2.4628935}
+  m_Center: {x: -0.008382201, y: 1, z: 0.021211147}
 --- !u!114 &2375334581895371008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,8 +315,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 15
-  prefabToUnlock: {fileID: 8195843984302793190, guid: 308406527cc9cd34a9a557f522ca27c1, type: 3}
+  prefabToUnlock: {fileID: 0}
+  shouldPopulate: 0
   itemToPopulate: {fileID: 7263746399949563864, guid: bffa92cbe1f77fa47940f2591f926f8a, type: 3}
+  onUnlock:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2375334581925308528
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +521,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0.21
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -548,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 2375334583627951521}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.6}
+  m_LocalScale: {x: 0.24954446, y: 0.24954446, z: 0.4990889}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1417113289968525933}

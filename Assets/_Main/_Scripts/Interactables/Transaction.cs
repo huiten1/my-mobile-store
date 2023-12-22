@@ -1,7 +1,5 @@
-﻿using System;
-using _Main._Scripts.Interaction;
-using UnityEditor;
-using UnityEditor.UIElements;
+﻿
+using _Main._Scripts.Interaction;  
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,7 +20,7 @@ namespace _Main._Scripts.Money
             {
                 if (filter != "")
                 {
-                    interactorHolder.Add(itemholder.Get(filter));
+                    interactorHolder.Add(itemholder.Get(filter,interactor));
                     return;
                 }
                 interactorHolder.Add(itemholder.Pop());
@@ -32,7 +30,7 @@ namespace _Main._Scripts.Money
             {
                 if (filter != "")
                 {
-                    itemholder.Add(interactorHolder.Get(filter));
+                    itemholder.Add(interactorHolder.Get(filter,interactor));
                     return;
                 }
                 itemholder.Add(interactorHolder.Pop());

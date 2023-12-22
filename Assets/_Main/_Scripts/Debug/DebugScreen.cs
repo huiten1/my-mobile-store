@@ -13,14 +13,14 @@ namespace _Main._Scripts.Debug
     {
         [SerializeField] private UIDocument uiDocument;
         [SerializeField] private StyleSheet styleSheet;
-        private void Start()
+        private void OnEnable()
         {
             StartCoroutine(Generate());
         }
 
         private void OnValidate()
         {
-            if(Application.isPlaying) return;
+            if(Application.isPlaying || !gameObject.activeInHierarchy) return;
             StartCoroutine(Generate());
         }
 
@@ -38,7 +38,7 @@ namespace _Main._Scripts.Debug
 
             var closeBtn = Create<Button>("btn");
             var saveBtn = Create<Button>("btn");
-            closeBtn.text = "\u2715";
+            closeBtn.text = "close";
             saveBtn.text = "save";
             var buttonsContainer = Create("buttons-container");
             menu.Add(buttonsContainer);
@@ -46,7 +46,11 @@ namespace _Main._Scripts.Debug
             buttonsContainer.Add(saveBtn);
             buttonsContainer.Add(closeBtn);
 
-            saveBtn.clicked += () => SaveManager.Save(gameData);
+            saveBtn.clicked += () =>
+            {
+                SaveManager.Save(gameData);
+                GameManager.Instance.ReloadScene();
+            };
             closeBtn.clicked += () => gameObject.SetActive(false);
             
             var container = Create("container");
@@ -102,6 +106,7 @@ namespace _Main._Scripts.Debug
             var resetButton = Create<Button>("btn");
             resetButton.AddToClassList("reset-btn");
             resetButton.text = "Reset";
+            resetButton.clicked += GameManager.Instance.StageReset;
             resetButtonContainer.Add(buttonLabel);
             resetButtonContainer.Add(resetButton);
             list.Add(resetButtonContainer);

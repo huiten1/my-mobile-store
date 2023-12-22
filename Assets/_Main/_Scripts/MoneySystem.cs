@@ -16,8 +16,11 @@ public class MoneySystem : MonoBehaviour
     public Transform targetTf;
     public GameObject moneyPf;
 
-    public int playerMoney;
-    
+    public int playerMoney { 
+        get=> GameManager.Instance.GameData.playerGold;
+        set => GameManager.Instance.GameData.playerGold = value;
+    }
+
     private void Awake()
     {
         Instance = this;
@@ -25,7 +28,6 @@ public class MoneySystem : MonoBehaviour
 
     void Start()
     {
-        playerMoney = PlayerPrefs.GetInt("money");
 
         UpdateMoney();
     }

@@ -45,8 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd77ec27bc14e2c468d4cc1a817bd61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   itemType: 0
   price: 10
+  insideBoxRotation: {x: 90, y: 0, z: 0}
 --- !u!1001 &2110803564043026028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,6 +111,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3182eb5ac1813d945b4b65028d450f7d, type: 3}
+--- !u!1 &1263960606581752637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3182eb5ac1813d945b4b65028d450f7d, type: 3}
+  m_PrefabInstance: {fileID: 2110803564043026028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2840456754002190305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263960606581752637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.869629, y: 0.61280525, z: 0.04327003}
+  m_Center: {x: 0, y: 0.43395156, z: 0.026724856}
 --- !u!4 &1928013246096529799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3182eb5ac1813d945b4b65028d450f7d, type: 3}

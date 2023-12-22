@@ -20,7 +20,7 @@ namespace _Main._Scripts
         }
 
         public UnityEvent onFull;
-
+        public UnityEvent onNotEmpty;
         public override bool IsFull => itemSlots.All(e => !e.IsEmpty);
         public override bool HasItems => itemSlots.Any(e => !e.IsEmpty);
         private ItemSlot[] itemSlots;
@@ -44,16 +44,23 @@ namespace _Main._Scripts
 
         public override void Add(GameObject item)
         {
-            if(!item) return;
-           
+            if (!item) return;
+            if (!HasItems)
+            {
+                onNotEmpty?.Invoke();
+            }
             foreach (var itemSlot in itemSlots)
             {
                 if (itemSlot.IsEmpty)
                 {
                     itemSlot.item = item;
-                    item.transform.SetParent(itemSlot.slotTf,false);
-                    item.transform.DOLocalJump(Vector3.zero, 1f, 1, 0.6f);
+                    item.transform.SetParent(itemSlot.slotTf, item.transform.parent);
+                    var duration = .6f;
+                    item.transform.DOLocalJump(Vector3.zero, 1.5f, 1, duration);
+                    item.transform.DOLocalRotate(Vector3.zero, duration);
                     
+                    item.GetComponent<Item>()?.OnPlaced?.Invoke();
+
                     if (IsFull)
                     {
                         onFull?.Invoke();
@@ -61,8 +68,6 @@ namespace _Main._Scripts
                     return;
                 }
             }
-
-          
         }   
 
         public override GameObject Pop()
@@ -79,18 +84,17 @@ namespace _Main._Scripts
             return null;
         }
 
-        public override GameObject Get(string filter)
+        public override GameObject Get(string filter,GameObject interactor)
         {
-            foreach (var itemSlot in itemSlots)
-            {
-                if (!itemSlot.IsEmpty && itemSlot.item.name.ToLower().Contains(filter.ToLower()))
-                {
-                    var res = itemSlot.item;
-                    itemSlot.item = null;
-                    return res;
-                }
-            }
-            return null;
+            var targetItem = itemSlots
+                .Where(e => !e.IsEmpty && e.item.name.ToLower().Contains(filter.ToLower()))
+                .OrderBy(e => Vector3.Distance(interactor.transform.position, e.item.transform.position))
+                .FirstOrDefault();
+
+            if (targetItem == null) return null;
+            var res = targetItem.item;
+            targetItem.item = null;
+            return res;
         }
     }
 }

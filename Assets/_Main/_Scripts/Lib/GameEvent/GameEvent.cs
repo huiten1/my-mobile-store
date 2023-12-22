@@ -9,13 +9,12 @@ namespace Lib.GameEvent
     [CreateAssetMenu(fileName = "GameEvent", menuName = "Game/Events/GameEvent", order = 0)]
     public class GameEvent : ScriptableObject
     {
-        [SerializeField]
         private List<Action> _eventListeners = new ();
         public void Invoke()
         {
             Debug.Log($"{name} has triggered {_eventListeners.Count} methods : {_eventListeners.Select(e=>e.Method.Name).Aggregate("",(sum,res)=>sum + ", " +res )}");
 
-            for (int i = 0; i < _eventListeners.Count; i++)
+            for (int i = _eventListeners.Count - 1; i >= 0; i--)
             {
                 _eventListeners[i]?.Invoke();
             }
@@ -23,7 +22,9 @@ namespace Lib.GameEvent
 
         public void AddListener(Action action)
         {
+            Debug.Log($"Trying to add action:{action.Method.Name} to event {name}");
             if(_eventListeners.Contains(action)) return;
+            Debug.Log($"Added action:{action.Method.Name}");
             _eventListeners.Add(action);
         }
 
@@ -36,5 +37,6 @@ namespace Lib.GameEvent
         }
 
         public void RemoveAllListeners() => _eventListeners.Clear();
+    
     }
 }

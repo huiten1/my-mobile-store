@@ -1,12 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Main._Scripts;
+using _Main._Scripts.SaveLoad;
+using _Main._Scripts.Utils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager Instance;
-
+    [SerializeField] private GameObject[] powerUps;
+    private GameData _gameData;
+    public GameData GameData => _gameData;
     public enum GameState
     {
         Starting,
@@ -15,44 +20,44 @@ public class GameManager : MonoBehaviour
         Fail,
         Paused
     }
-    [Header("Game")]
-    public GameState gameState;
-    public static event Action<GameState> OnGameStateChanged;
+    private GameState currentState;
+    public GameState CurrentState => currentState;
+    public event Action<GameState> OnGameStateChanged;
 
-    [Header("UI")]
-    public Canvas mainCanvas;
-
-
-
+    public event Action stageReset;
     private void Awake()
     {
-        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        _gameData = SaveManager.Load<GameData>();
     }
 
-    public void UpdateGameState(GameState newState)
+    private void Start()
     {
-        gameState = newState;
-        switch (newState)
+        SetState(GameState.Starting);
+        foreach (var powerUp in powerUps)
         {
-            case GameState.Starting:
-                break;
-
-            case GameState.Ending:
-                break;
-
-            case GameState.Victory:
-                break;
-
-            case GameState.Fail:
-                break;
-
-            case GameState.Paused:
-                break;
-
-            default:
-                break;
+            powerUp.SetActive(_gameData.showItems);
         }
-        OnGameStateChanged?.Invoke(newState);
+    }
+
+    public void StageReset() => stageReset?.Invoke();
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene("Test");
+        _gameData = SaveManager.Load<GameData>();
+    }
+
+    private void OnDestroy()
+    {
+        SaveManager.Save(_gameData);
+    }
+
+    public void SetState(GameState newState)
+    {
+        if(currentState==newState) return;
+        currentState = newState;
+        OnGameStateChanged?.Invoke(currentState);
 
     }
 

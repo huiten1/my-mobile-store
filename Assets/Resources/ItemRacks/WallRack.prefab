@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7c46aea0cc40584a8bee6737d688b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,8 +128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd77ec27bc14e2c468d4cc1a817bd61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   itemType: 0
   price: 10
+  insideBoxRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &2176454850691457867
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,8 +278,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd77ec27bc14e2c468d4cc1a817bd61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   itemType: 0
   price: 10
+  insideBoxRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &2762219012428735556
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,8 +332,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd77ec27bc14e2c468d4cc1a817bd61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   itemType: 0
   price: 10
+  insideBoxRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &3607511338690054687
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +434,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7c46aea0cc40584a8bee6737d688b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -528,7 +549,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7c46aea0cc40584a8bee6737d688b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -561,6 +582,7 @@ GameObject:
   - component: {fileID: 9143774054129878068}
   - component: {fileID: 4307077220300535826}
   - component: {fileID: 1580720018053644385}
+  - component: {fileID: -8709269698058062624}
   m_Layer: 0
   m_Name: WallRack
   m_TagString: Untagged
@@ -610,6 +632,12 @@ MonoBehaviour:
   - {fileID: 8394147037593816444}
   - {fileID: 1949444544872710179}
   - {fileID: 3041842969301964631}
+  onFull:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEmpty:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1580720018053644385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,6 +654,22 @@ MonoBehaviour:
   shouldGiveTo: Customer
   filter: 
   shouldGetFrom: Player
+--- !u!114 &-8709269698058062624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307077220300535827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c34e6118f2849dfbfb2212ccd274b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToPopulate: {fileID: 0}
+  shouldPopulate: 0
+  itemRack: {fileID: 4307077220300535826}
+  spawnPeriod: 1
 --- !u!1 &4836976334666831344
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +731,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7c46aea0cc40584a8bee6737d688b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -754,8 +798,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd77ec27bc14e2c468d4cc1a817bd61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   itemType: 0
   price: 10
+  insideBoxRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &6065750942216893600
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +941,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7c46aea0cc40584a8bee6737d688b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -973,7 +1024,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7c46aea0cc40584a8bee6737d688b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1040,8 +1091,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd77ec27bc14e2c468d4cc1a817bd61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   itemType: 0
   price: 10
+  insideBoxRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &8914518480054748866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,8 +1145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd77ec27bc14e2c468d4cc1a817bd61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   itemType: 0
   price: 10
+  insideBoxRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &8999336066196176961
 GameObject:
   m_ObjectHideFlags: 0
