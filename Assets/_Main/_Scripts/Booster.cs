@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,13 +40,20 @@ public class Booster : MonoBehaviour
         Debug.Log("Trying to add listner");
         boostEvent.AddListener(Activate);
     }
-    
+
+    void OnDestroy()
+    {
+        boostEvent.RemoveListener(Activate);
+    }
+
+
     public void Activate()
     {
         Movement.Instance.smokeExplosionWhite.Play();
         Movement.Instance.segway.SetActive(true);
         Movement.Instance.animator.SetBool("isRiding", true);
         currentSpeed = Movement.Instance.moveSpeed;
+        Debug.Log($"speed Boost amount:{speedBoostAmount}");
         Movement.Instance.moveSpeed = currentSpeed + speedBoostAmount;
         isActive = true;
     }
