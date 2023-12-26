@@ -27,16 +27,14 @@ namespace _Main._Scripts.Money
         
         private IEnumerator Start()
         {
-            GenerateKey();
             currentPrice = GetPrice();
-            UnityEngine.Debug.Log(key + currentPrice);
             ValueChanged?.Invoke(Value);
             yield return null;
             if (currentPrice <= 0)
             {
                 Unlock();
             }
-            GameManager.Instance.stageReset += Reset;
+            // GameManager.Instance.stageReset += Reset;
         }
 
         private void GenerateKey()
@@ -51,11 +49,7 @@ namespace _Main._Scripts.Money
 
         private int GetPrice()
         {
-            if (GameManager.Instance.GameData.onBoarding)
-            {
-                return price;
-            }
-            return PlayerPrefs.GetInt(key,price);
+            return price;
         }
 
         private void Reset()

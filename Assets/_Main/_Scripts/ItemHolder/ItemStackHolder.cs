@@ -52,6 +52,7 @@ namespace _Main._Scripts
                 height += sizeY;
                 items[i].transform.DOLocalMove(targetLocalPos, 0.6f);
             }
+            stackHeight = height;
         }
 
         public override GameObject Get(string filter,GameObject interactor)

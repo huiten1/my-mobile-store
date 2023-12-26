@@ -9,13 +9,15 @@ namespace _Main._Scripts
         public bool onBoarding;
         public bool showItems;
         public int playerGold;
+        public int level;
         public float playerMoveSpeed;
         public float botSpawnTime;
         public float scooterBonusSpeed;
         public GameData()
         {
+            level = 1;
             onBoarding = true;
-            showItems = true;
+            showItems = false;
             playerGold = 0;
             playerMoveSpeed = 5;
             botSpawnTime = 4;

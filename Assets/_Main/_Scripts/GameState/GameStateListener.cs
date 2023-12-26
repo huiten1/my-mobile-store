@@ -23,22 +23,22 @@ namespace _Main._Scripts.GameState
         {
             if (stateToReact == currentState)
             {
-                onTargetStateReached?.Invoke();
+                OnReachedState();
             }
             else
             {
-                onTargetNotReached?.Invoke();
+                OnNotReachedState();   
             }
         }
 
         protected virtual void OnReachedState()
         {
-            
+            onTargetStateReached?.Invoke();
         }
 
         protected virtual void OnNotReachedState()
         {
-            
+            onTargetNotReached?.Invoke();
         }
     }
 }

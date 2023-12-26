@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5788239775519024193}
   - component: {fileID: 7855451837991304479}
+  - component: {fileID: 7993610528169220425}
   m_Layer: 0
   m_Name: Airpods
   m_TagString: Untagged
@@ -55,6 +56,30 @@ MonoBehaviour:
   itemType: 0
   price: 10
   insideBoxRotation: {x: 90, y: 0, z: 0}
+--- !u!114 &7993610528169220425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893382647048418167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdcbabb282946c8aaf052f778225fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.990566, g: 0.6004139, b: 0.21026169, a: 1}
+  - {r: 1, g: 0.33490568, b: 0.5843161, a: 1}
+  - {r: 0.4185208, g: 0.8962264, b: 0.42506468, a: 1}
+  - {r: 0.31523672, g: 0.37101248, b: 0.8679245, a: 1}
+  - {r: 0.8867924, g: 0.33882165, b: 0.33882165, a: 1}
+  - {r: 0.2971698, g: 0.55646634, b: 1, a: 1}
+  - {r: 0.20803669, g: 0.7883902, b: 0.8018868, a: 1}
+  - {r: 0.8770637, g: 0.9433962, b: 0.23584905, a: 1}
+  renderers:
+  - renderer: {fileID: 6305017718284259589}
+    materialIndexes: 0100000002000000
 --- !u!1 &5937135568998128986
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,3 +243,8 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.34112793
   m_Center: {x: 0.00004477799, y: 0.38410598, z: -0.0001260005}
+--- !u!23 &6305017718284259589 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e8301fd80ba2b0446a68daa64eedcbbb, type: 3}
+  m_PrefabInstance: {fileID: 4665299941810376065}
+  m_PrefabAsset: {fileID: 0}

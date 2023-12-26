@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7787490833417727017}
   - component: {fileID: 1544353003335220402}
+  - component: {fileID: -3001331816790124369}
   m_Layer: 0
   m_Name: iPhone
   m_TagString: Untagged
@@ -55,6 +56,30 @@ MonoBehaviour:
   itemType: 0
   price: 10
   insideBoxRotation: {x: -105, y: 90, z: 0}
+--- !u!114 &-3001331816790124369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123232369116613592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdcbabb282946c8aaf052f778225fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.990566, g: 0.6004139, b: 0.21026169, a: 1}
+  - {r: 1, g: 0.33490568, b: 0.5843161, a: 1}
+  - {r: 0.4185208, g: 0.8962264, b: 0.42506468, a: 1}
+  - {r: 0.31523672, g: 0.37101248, b: 0.8679245, a: 1}
+  - {r: 0.8867924, g: 0.33882165, b: 0.33882165, a: 1}
+  - {r: 0.2971698, g: 0.55646634, b: 1, a: 1}
+  - {r: 0.20803669, g: 0.7883902, b: 0.8018868, a: 1}
+  - {r: 0.8770637, g: 0.9433962, b: 0.23584905, a: 1}
+  renderers:
+  - renderer: {fileID: 7611293254125197614}
+    materialIndexes: 01000000
 --- !u!1001 &5618663472433229862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,15 +159,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe0e9af4e27bf994fb51a7f6b88aa0d7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.36
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe0e9af4e27bf994fb51a7f6b88aa0d7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.36
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe0e9af4e27bf994fb51a7f6b88aa0d7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.36
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe0e9af4e27bf994fb51a7f6b88aa0d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,6 +219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe0e9af4e27bf994fb51a7f6b88aa0d7, type: 3}
+--- !u!23 &7611293254125197614 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: fe0e9af4e27bf994fb51a7f6b88aa0d7, type: 3}
+  m_PrefabInstance: {fileID: 9106607487072011690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8259674917131925755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe0e9af4e27bf994fb51a7f6b88aa0d7, type: 3}

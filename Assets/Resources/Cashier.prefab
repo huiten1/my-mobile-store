@@ -132,7 +132,7 @@ MonoBehaviour:
   widthOffset: 0.4
   length: 3
   lengthOffset: 0.7
-  height: 5
+  height: 8
   heightOffset: 0.18
   showGizmos: 1
 --- !u!1 &3435037293514445007

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600685376902024505}
   - component: {fileID: -5707398356469866312}
+  - component: {fileID: -6912178515914351862}
   m_Layer: 0
   m_Name: iWatch
   m_TagString: Untagged
@@ -55,6 +56,30 @@ MonoBehaviour:
   itemType: 0
   price: 10
   insideBoxRotation: {x: 0, y: 0, z: 90}
+--- !u!114 &-6912178515914351862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884866234866642795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdcbabb282946c8aaf052f778225fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.990566, g: 0.6004139, b: 0.21026169, a: 1}
+  - {r: 1, g: 0.33490568, b: 0.5843161, a: 1}
+  - {r: 0.4185208, g: 0.8962264, b: 0.42506468, a: 1}
+  - {r: 0.31523672, g: 0.37101248, b: 0.8679245, a: 1}
+  - {r: 0.8867924, g: 0.33882165, b: 0.33882165, a: 1}
+  - {r: 0.2971698, g: 0.55646634, b: 1, a: 1}
+  - {r: 0.20803669, g: 0.7883902, b: 0.8018868, a: 1}
+  - {r: 0.8770637, g: 0.9433962, b: 0.23584905, a: 1}
+  renderers:
+  - renderer: {fileID: 5840431753757528400}
+    materialIndexes: 02000000
 --- !u!1001 &2291598492413484591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,6 +206,11 @@ PrefabInstance:
 --- !u!4 &5054401231401014421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2d2aef28a75bfd448a1f22b28072646a, type: 3}
+  m_PrefabInstance: {fileID: 4732841610621563774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5840431753757528400 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8024552643631766994, guid: 2d2aef28a75bfd448a1f22b28072646a, type: 3}
   m_PrefabInstance: {fileID: 4732841610621563774}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8650947076786330176 stripped

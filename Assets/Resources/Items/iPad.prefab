@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030116470268634351}
   - component: {fileID: -6990419200487313143}
+  - component: {fileID: 2765212956432112641}
   m_Layer: 0
   m_Name: iPad
   m_TagString: Untagged
@@ -55,6 +56,30 @@ MonoBehaviour:
   itemType: 0
   price: 10
   insideBoxRotation: {x: -105, y: 90, z: 0}
+--- !u!114 &2765212956432112641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675556075674595101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdcbabb282946c8aaf052f778225fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.990566, g: 0.6004139, b: 0.21026169, a: 1}
+  - {r: 1, g: 0.33490568, b: 0.5843161, a: 1}
+  - {r: 0.4185208, g: 0.8962264, b: 0.42506468, a: 1}
+  - {r: 0.31523672, g: 0.37101248, b: 0.8679245, a: 1}
+  - {r: 0.8867924, g: 0.33882165, b: 0.33882165, a: 1}
+  - {r: 0.2971698, g: 0.55646634, b: 1, a: 1}
+  - {r: 0.20803669, g: 0.7883902, b: 0.8018868, a: 1}
+  - {r: 0.8770637, g: 0.9433962, b: 0.23584905, a: 1}
+  renderers:
+  - renderer: {fileID: 6332787764746235630}
+    materialIndexes: 02000000
 --- !u!1001 &2498680196246464110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201,3 +226,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.45314673, y: 0.6126421, z: 0.044578966}
   m_Center: {x: 0, y: 0.30376837, z: -0.003261692}
+--- !u!23 &6332787764746235630 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 848f274dcd52c8e4fba8a08207831876, type: 3}
+  m_PrefabInstance: {fileID: 4621539062921114218}
+  m_PrefabAsset: {fileID: 0}
